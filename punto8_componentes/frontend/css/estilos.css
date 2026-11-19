@@ -1,0 +1,158 @@
+/* =========================================================
+   MindSprint - Guía de estilo en CSS propio
+   Colores, tipografías y tamaños sacados de nuestro Figma.
+   Si cambia algo en Figma, solo hay que cambiarlo en :root.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. VARIABLES DE LA GUÍA DE ESTILO
+   --------------------------------------------------------- */
+:root {
+    /* Colores principales */
+    --color-primario: #304DF8;        /* botones principales, logo, reto del día */
+    --color-primario-hover: #2139D9;  /* primario al pasar el ratón */
+    --color-primario-suave: #EEF0FE;  /* fila resaltada del ranking ("tú") */
+    --color-oscuro: #13172A;          /* texto principal, panel del login, tarjeta de puntuación */
+    --color-texto-suave: #59607E;     /* descripciones y textos de ayuda */
+    --color-texto-claro: #A2A9C0;     /* texto sobre fondo oscuro */
+    --color-fondo: #F2F4FA;           /* fondo de la página */
+    --color-blanco: #FFFFFF;          /* tarjetas y botón secundario */
+    --color-borde: #DCE0ED;           /* bordes de campos, tarjetas y botón secundario */
+    --color-gris: #E4E6ED;            /* opciones de respuesta, barras vacías, desactivado */
+
+    /* Colores de estado */
+    --color-acierto: #00B270;         /* respuesta correcta, aciertos, precisión */
+    --color-fallo: #F64155;           /* fallos y errores */
+    --color-fallo-fondo: #FEECEE;     /* fondo del aviso "esta partida no se guardará" */
+    --color-fallo-texto: #BF2E41;     /* texto del aviso */
+    --color-amarillo: #FFC24C;        /* temporizador, reto del día, puntuación, 1º del ranking */
+    --color-amarillo-suave: #FFF4D8;  /* etiqueta del minijuego durante la partida */
+
+    /* Colores de las categorías */
+    --color-memoria: #8B5CF0;
+    --color-calculo: #FFC24C;
+    --color-atencion: #00B8AF;
+    --color-verbal: #FF7960;          /* también los días de racha */
+
+    /* Tipografías */
+    --fuente-titulos: 'Space Grotesk', sans-serif;  /* títulos y números grandes */
+    --fuente-texto: 'Inter', sans-serif;            /* textos, botones y formularios */
+
+    /* Tamaños de letra */
+    --texto-numero: 96px;      /* puntuación final (1.625) */
+    --texto-portada: 48px;     /* "60 segundos para despertar la mente." */
+    --texto-h1: 36px;          /* "Cálculo relámpago", "Partida en pausa" */
+    --texto-h2: 28px;          /* "Hola, Jesús Doña" */
+    --texto-h3: 20px;          /* "Elige una categoría", títulos de tarjetas */
+    --texto-normal: 16px;
+    --texto-pequeno: 14px;     /* descripciones, etiquetas de campos */
+    --texto-mini: 12px;        /* ayudas de los campos, "3 juegos" */
+
+    /* Espacios */
+    --espacio-xs: 4px;
+    --espacio-s: 8px;
+    --espacio-m: 16px;
+    --espacio-l: 24px;
+    --espacio-xl: 40px;
+
+    /* Esquinas */
+    --radio: 10px;             /* botones y campos */
+    --radio-tarjeta: 16px;     /* tarjetas y ventanas */
+}
+
+/* ---------------------------------------------------------
+   2. BASE: estilos que se aplican a toda la página
+   --------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-oscuro);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-normal);
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    margin: 0 0 var(--espacio-m);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 { font-size: var(--texto-h1); }
+h2 { font-size: var(--texto-h2); }
+h3 { font-size: var(--texto-h3); }
+
+p {
+    margin: 0 0 var(--espacio-m);
+}
+
+a {
+    color: var(--color-primario);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ---------------------------------------------------------
+   3. CLASES DE AYUDA
+   --------------------------------------------------------- */
+
+/* Centra el contenido con un ancho máximo */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--espacio-xl) var(--espacio-l);
+}
+
+/* Textos */
+.texto-portada {
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-portada);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.texto-numero {
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-numero);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.texto-suave {
+    color: var(--color-texto-suave);
+}
+
+.texto-pequeno {
+    font-size: var(--texto-pequeno);
+}
+
+/* ---------------------------------------------------------
+   4. MÓVIL: textos más pequeños en pantallas estrechas
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+    :root {
+        --texto-numero: 64px;
+        --texto-portada: 34px;
+        --texto-h1: 28px;
+        --texto-h2: 24px;
+    }
+
+    .contenedor {
+        padding: var(--espacio-l) var(--espacio-m);
+    }
+}

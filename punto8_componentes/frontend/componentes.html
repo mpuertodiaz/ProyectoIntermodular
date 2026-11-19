@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSprint · Componentes</title>
+
+    <!-- Tipografías de la guía de estilo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- 1º la guía de estilo (variables), 2º los componentes -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/componentes.css">
+
+    <!-- Estilos solo para ordenar el catálogo -->
+    <style>
+        .seccion {
+            margin-bottom: var(--espacio-xl);
+        }
+        .fila {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: var(--espacio-m);
+        }
+        .rejilla {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: var(--espacio-m);
+        }
+        .rejilla-campos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 0 var(--espacio-l);
+        }
+        .nombre-componente {
+            margin: 0 0 var(--espacio-s);
+            font-size: var(--texto-mini);
+            font-weight: 600;
+            color: var(--color-texto-suave);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tarjeta-reto {
+            max-width: 480px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="contenedor">
+        <h1>Catálogo de componentes</h1>
+        <p class="texto-suave">Componentes de la guía de estilo de Figma pasados a código. Estilos en <code>css/componentes.css</code>.</p>
+
+        <!-- ================= BOTONES ================= -->
+        <section class="seccion">
+            <h2>Botones</h2>
+            <div class="fila">
+                <div>
+                    <p class="nombre-componente">Principal</p>
+                    <button class="btn btn-primario">Reintentar</button>
+                </div>
+                <div>
+                    <p class="nombre-componente">Secundario</p>
+                    <button class="btn btn-secundario">Volver al menú</button>
+                </div>
+                <div>
+                    <p class="nombre-componente">Desactivado</p>
+                    <button class="btn btn-primario" disabled>Crear cuenta</button>
+                </div>
+                <div>
+                    <p class="nombre-componente">Reto del día</p>
+                    <button class="btn btn-reto">Jugar reto</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CAMPOS ================= -->
+        <section class="seccion">
+            <h2>Campos</h2>
+            <div class="tarjeta">
+                <div class="rejilla-campos">
+
+                    <!-- Texto -->
+                    <div class="campo">
+                        <label class="campo-etiqueta" for="alias">Alias</label>
+                        <input class="campo-control" id="alias" type="text" value="JesusDelBetisBueno">
+                        <p class="campo-ayuda">Es el nombre que verán los demás jugadores.</p>
+                        <p class="campo-mensaje-error">Ese alias ya está en uso.</p>
+                    </div>
+
+                    <!-- Texto (correo) -->
+                    <div class="campo">
+                        <label class="campo-etiqueta" for="email">Correo electrónico</label>
+                        <input class="campo-control" id="email" type="email" value="jesusDerBetihBueno@gmail.com">
+                        <p class="campo-mensaje-error">Ya existe una cuenta con ese correo.</p>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="campo">
+                        <label class="campo-etiqueta" for="password">Contraseña</label>
+                        <input class="campo-control" id="password" type="password" value="Prueba123">
+                        <p class="campo-ayuda">Mínimo 8 caracteres, una mayúscula y un número</p>
+                        <p class="campo-mensaje-error">La contraseña necesita mínimo 8 caracteres, una mayúscula y un número.</p>
+                    </div>
+
+                    <!-- Desplegable -->
+                    <div class="campo">
+                        <label class="campo-etiqueta" for="categoria">Categoría</label>
+                        <select class="campo-control" id="categoria">
+                            <option value="">Elige una categoría</option>
+                            <option>Memoria</option>
+                            <option>Cálculo</option>
+                            <option>Atención</option>
+                            <option>Agilidad verbal</option>
+                        </select>
+                        <p class="campo-mensaje-error">Tienes que elegir una categoría.</p>
+                    </div>
+
+                </div>
+
+                <!-- Casilla -->
+                <label class="campo-casilla">
+                    <input type="checkbox" checked>
+                    Acepto los <a href="#">términos de uso</a>
+                </label>
+
+                <!-- Botón para ver los campos con su mensaje de error -->
+                <button class="btn btn-secundario" id="boton-errores" style="margin-top: var(--espacio-l)">Mostrar errores</button>
+            </div>
+        </section>
+
+        <!-- ================= TARJETAS ================= -->
+        <section class="seccion">
+            <h2>Tarjetas</h2>
+
+            <p class="nombre-componente">Tarjeta de categoría (tarjeta principal)</p>
+            <div class="rejilla">
+                <a class="tarjeta tarjeta-categoria categoria-memoria" href="#">
+                    <span class="tarjeta-icono">M</span>
+                    <h3 class="tarjeta-titulo">Memoria</h3>
+                    <p class="tarjeta-texto">Recuerda secuencias, parejas y posiciones.</p>
+                    <p class="tarjeta-pie">3 juegos</p>
+                </a>
+                <a class="tarjeta tarjeta-categoria categoria-calculo" href="#">
+                    <span class="tarjeta-icono">+</span>
+                    <h3 class="tarjeta-titulo">Cálculo</h3>
+                    <p class="tarjeta-texto">Operaciones rápidas contra el reloj.</p>
+                    <p class="tarjeta-pie">3 juegos</p>
+                </a>
+                <a class="tarjeta tarjeta-categoria categoria-atencion" href="#">
+                    <span class="tarjeta-icono">A</span>
+                    <h3 class="tarjeta-titulo">Atención</h3>
+                    <p class="tarjeta-texto">Encuentra el color o la forma que no encaja.</p>
+                    <p class="tarjeta-pie">3 juegos</p>
+                </a>
+                <a class="tarjeta tarjeta-categoria categoria-verbal" href="#">
+                    <span class="tarjeta-icono">Aa</span>
+                    <h3 class="tarjeta-titulo">Agilidad verbal</h3>
+                    <p class="tarjeta-texto">Palabras, idiomas y asociaciones.</p>
+                    <p class="tarjeta-pie">2 juegos</p>
+                </a>
+            </div>
+
+            <p class="nombre-componente" style="margin-top: var(--espacio-l)">Tarjeta del Reto del Día</p>
+            <div class="tarjeta tarjeta-reto">
+                <span class="etiqueta">Reto del Día</span>
+                <h3 class="tarjeta-titulo">Cálculo relámpago</h3>
+                <p class="tarjeta-texto">Solo cuenta tu primera partida de hoy para la clasificación diaria.</p>
+                <div class="tarjeta-reto-pie">
+                    <span>60 s</span>
+                    <button class="btn btn-reto">Jugar reto</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Pone o quita la clase campo-error en todos los campos
+        // para ver cómo quedan con su mensaje de error.
+        const botonErrores = document.getElementById("boton-errores");
+        const campos = document.querySelectorAll(".campo");
+
+        botonErrores.addEventListener("click", () => {
+            campos.forEach(campo => campo.classList.toggle("campo-error"));
+
+            if (botonErrores.textContent === "Mostrar errores") {
+                botonErrores.textContent = "Ocultar errores";
+            } else {
+                botonErrores.textContent = "Mostrar errores";
+            }
+        });
+    </script>
+
+</body>
+</html>

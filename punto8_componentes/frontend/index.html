@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSprint · Guía de estilo</title>
+
+    <!-- Tipografías de la guía de estilo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- Estilos solo de esta página de prueba -->
+    <style>
+        .paleta {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: var(--espacio-m);
+            margin-bottom: var(--espacio-xl);
+        }
+        .muestra {
+            background: var(--color-blanco);
+            border: 1px solid var(--color-borde);
+            border-radius: var(--radio-tarjeta);
+            overflow: hidden;
+        }
+        .muestra-color {
+            height: 70px;
+        }
+        .muestra p {
+            margin: 0;
+            padding: var(--espacio-s) var(--espacio-m);
+            font-size: var(--texto-pequeno);
+        }
+        .muestra code {
+            color: var(--color-texto-suave);
+            font-size: var(--texto-mini);
+        }
+        .tipografias {
+            background: var(--color-blanco);
+            border: 1px solid var(--color-borde);
+            border-radius: var(--radio-tarjeta);
+            padding: var(--espacio-l);
+        }
+    </style>
+</head>
+<body>
+
+    <main class="contenedor">
+        <h1>Guía de estilo de MindSprint</h1>
+        <p class="texto-suave">Colores, tipografías y tamaños de Figma configurados en <code>css/estilos.css</code>.</p>
+        <p><a href="componentes.html">Ver el catálogo de componentes →</a></p>
+
+        <h2>Colores</h2>
+        <div class="paleta">
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-primario)"></div><p>Primario<br><code>#304DF8</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-oscuro)"></div><p>Oscuro<br><code>#13172A</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-texto-suave)"></div><p>Texto suave<br><code>#59607E</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-fondo)"></div><p>Fondo<br><code>#F2F4FA</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-borde)"></div><p>Borde<br><code>#DCE0ED</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-acierto)"></div><p>Acierto<br><code>#00B270</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-fallo)"></div><p>Fallo<br><code>#F64155</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-amarillo)"></div><p>Amarillo<br><code>#FFC24C</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-memoria)"></div><p>Memoria<br><code>#8B5CF0</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-atencion)"></div><p>Atención<br><code>#00B8AF</code></p></div>
+            <div class="muestra"><div class="muestra-color" style="background: var(--color-verbal)"></div><p>Agilidad verbal<br><code>#FF7960</code></p></div>
+        </div>
+
+        <h2>Tipografías</h2>
+        <div class="tipografias">
+            <p class="texto-numero">1.625</p>
+            <p class="texto-portada">60 segundos para despertar la mente.</p>
+            <h1>Cálculo relámpago</h1>
+            <h2>Hola, Jesús Doña</h2>
+            <h3>Elige una categoría</h3>
+            <p>Texto normal en Inter: retos rápidos de memoria, cálculo, atención y lenguaje.</p>
+            <p class="texto-pequeno texto-suave">Texto pequeño: mínimo 8 caracteres, una mayúscula y un número.</p>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

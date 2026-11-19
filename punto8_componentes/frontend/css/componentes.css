@@ -1,0 +1,318 @@
+/* =========================================================
+   MindSprint - Componentes
+   Botones, campos y tarjetas de la guía de estilo de Figma.
+   Usa las variables de estilos.css (cargar estilos.css antes).
+
+   Cada componente tiene una clase base (.btn, .campo, .tarjeta)
+   y clases que la modifican (.btn-primario, .campo-error...).
+   Así se reutiliza el mismo componente en toda la app.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. BOTONES
+   Uso: <button class="btn btn-primario">Reintentar</button>
+   --------------------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espacio-s);
+    min-height: 48px;
+    padding: 0 var(--espacio-l);
+    border: 1px solid transparent;
+    border-radius: var(--radio);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-normal);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+.btn:focus-visible {
+    outline: 3px solid rgba(48, 77, 248, 0.35);
+    outline-offset: 2px;
+}
+
+/* Principal: azul ("Crear cuenta", "Continuar", "Reintentar") */
+.btn-primario {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.btn-primario:hover {
+    background-color: var(--color-primario-hover);
+}
+
+/* Secundario: blanco con borde ("Volver al menú", "Salir al menú") */
+.btn-secundario {
+    background-color: var(--color-blanco);
+    border-color: var(--color-borde);
+    color: var(--color-oscuro);
+}
+
+.btn-secundario:hover {
+    background-color: var(--color-fondo);
+}
+
+/* Reto: amarillo ("Jugar reto") */
+.btn-reto {
+    background-color: var(--color-amarillo);
+    color: var(--color-oscuro);
+}
+
+.btn-reto:hover {
+    background-color: #F5B23A;
+}
+
+/* Desactivado: vale para cualquier tipo de botón */
+.btn:disabled,
+.btn.btn-desactivado {
+    background-color: var(--color-gris);
+    border-color: var(--color-gris);
+    color: var(--color-texto-suave);
+    cursor: not-allowed;
+}
+
+/* Botón que ocupa todo el ancho (formularios, menú de pausa) */
+.btn-bloque {
+    width: 100%;
+}
+
+/* ---------------------------------------------------------
+   2. CAMPOS DE FORMULARIO
+   Uso:
+   <div class="campo">
+       <label class="campo-etiqueta" for="email">Correo electrónico</label>
+       <input class="campo-control" id="email" type="email">
+       <p class="campo-ayuda">Texto de ayuda</p>
+       <p class="campo-mensaje-error">Mensaje de error</p>
+   </div>
+   Para mostrar el error se añade la clase .campo-error al div.
+   --------------------------------------------------------- */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: var(--espacio-m);
+}
+
+.campo-etiqueta {
+    font-size: var(--texto-pequeno);
+    font-weight: 600;
+    color: var(--color-oscuro);
+}
+
+.campo-control {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 var(--espacio-m);
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-pequeno);
+    color: var(--color-oscuro);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-control::placeholder {
+    color: var(--color-texto-suave);
+}
+
+.campo-control:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(48, 77, 248, 0.15);
+}
+
+/* Desplegable: quitamos la flecha del navegador y ponemos la nuestra */
+select.campo-control {
+    appearance: none;
+    padding-right: 44px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2359607E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    cursor: pointer;
+}
+
+/* Texto de ayuda debajo del campo */
+.campo-ayuda {
+    margin: 0;
+    font-size: var(--texto-mini);
+    color: var(--color-texto-suave);
+}
+
+/* Mensaje de error: oculto hasta que el campo tiene error */
+.campo-mensaje-error {
+    display: none;
+    margin: 0;
+    font-size: var(--texto-mini);
+    font-weight: 500;
+    color: var(--color-fallo-texto);
+}
+
+.campo-error .campo-control {
+    border-color: var(--color-fallo);
+}
+
+.campo-error .campo-control:focus {
+    box-shadow: 0 0 0 3px rgba(246, 65, 85, 0.15);
+}
+
+.campo-error .campo-mensaje-error {
+    display: block;
+}
+
+.campo-error .campo-ayuda {
+    display: none;
+}
+
+/* Casilla de verificación ("Acepto los términos de uso") */
+.campo-casilla {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-s);
+    font-size: var(--texto-pequeno);
+    cursor: pointer;
+}
+
+.campo-casilla input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--color-primario);
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   3. TARJETAS
+   --------------------------------------------------------- */
+
+/* Tarjeta base: fondo blanco, borde suave y esquinas redondeadas */
+.tarjeta {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-tarjeta);
+    padding: var(--espacio-l);
+}
+
+/* Tarjeta de categoría (la tarjeta principal del Dashboard)
+   Uso:
+   <a class="tarjeta tarjeta-categoria categoria-memoria" href="#">
+       <span class="tarjeta-icono">M</span>
+       <h3 class="tarjeta-titulo">Memoria</h3>
+       <p class="tarjeta-texto">Recuerda secuencias...</p>
+       <p class="tarjeta-pie">3 juegos</p>
+   </a>
+   Solo cambia la clase de color: categoria-memoria, categoria-calculo,
+   categoria-atencion o categoria-verbal. */
+.tarjeta-categoria {
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+    color: var(--color-oscuro);
+    font-weight: 400;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-categoria:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(19, 23, 42, 0.08);
+    text-decoration: none;
+}
+
+.tarjeta-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: var(--espacio-xl);
+    border-radius: 12px;
+    background-color: var(--color-categoria);
+    color: var(--color-blanco);
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-h3);
+    font-weight: 700;
+}
+
+.tarjeta-titulo {
+    margin: 0 0 var(--espacio-xs);
+    font-size: var(--texto-h3);
+}
+
+.tarjeta-texto {
+    margin: 0;
+    font-size: var(--texto-pequeno);
+    color: var(--color-texto-suave);
+}
+
+.tarjeta-pie {
+    margin: auto 0 0;
+    padding-top: var(--espacio-l);
+    font-size: var(--texto-mini);
+    font-weight: 600;
+    color: var(--color-texto-suave);
+}
+
+/* Color de cada categoría */
+.categoria-memoria  { --color-categoria: var(--color-memoria); }
+.categoria-calculo  { --color-categoria: var(--color-calculo); }
+.categoria-atencion { --color-categoria: var(--color-atencion); }
+.categoria-verbal   { --color-categoria: var(--color-verbal); }
+
+/* En Cálculo el icono es amarillo, así que el texto va en oscuro */
+.categoria-calculo .tarjeta-icono {
+    color: var(--color-oscuro);
+}
+
+/* Tarjeta del Reto del Día (azul) */
+.tarjeta-reto {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-m);
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.tarjeta-reto .tarjeta-titulo {
+    font-size: var(--texto-h1);
+    color: var(--color-blanco);
+}
+
+.tarjeta-reto .tarjeta-texto {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.tarjeta-reto-pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--espacio-m);
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-h3);
+    font-weight: 700;
+}
+
+/* Etiqueta pequeña ("Reto del Día", "Cálculo relámpago") */
+.etiqueta {
+    align-self: flex-start;
+    display: inline-block;
+    padding: var(--espacio-xs) 12px;
+    border-radius: 999px;
+    background-color: var(--color-amarillo);
+    color: var(--color-oscuro);
+    font-size: var(--texto-mini);
+    font-weight: 600;
+}
+
+.etiqueta-suave {
+    background-color: var(--color-amarillo-suave);
+}
