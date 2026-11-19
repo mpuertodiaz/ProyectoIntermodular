@@ -40,7 +40,7 @@ El fichero `.env` no se sube a GitHub (está en el `.gitignore`), así que cada 
 Con MySQL arrancado, ejecuta los dos scripts **en este orden**.
 
 **Opción A, con MySQL Workbench:**
-1. Abre *File → Open SQL Script* y elige `database/schema.sql`. Ejecútalo con el rayo ⚡.
+1. Abre *File → Open SQL Script* y elige `database/schema.sql`. Ejecútalo con el rayo.
 2. Haz lo mismo con `database/datos_prueba.sql`.
 
 **Opción B, desde la consola:**
@@ -70,7 +70,7 @@ Tiene que aparecer `{ "ok": true }`. Para parar el servidor, pulsa `Ctrl + C`.
 3. En **Goals** escribe `jetty:run` (con dos puntos) y pulsa *Run*.
 4. Cuando en la consola salga `Started Server`, abre http://localhost:8080/api/estado.
 
-**Desde IntelliJ:** abre la carpeta `backend` como proyecto Maven. Luego, en el panel *Maven* de la derecha, ve a *Plugins → jetty → jetty:run* y haz doble clic.
+**Desde Eclipse:** abre la carpeta `backend` como proyecto Maven. Luego, en el panel *Maven* de la derecha, ve a *Plugins → jetty → jetty:run* y haz doble clic.
 
 ## 4. Abrir el frontend
 
